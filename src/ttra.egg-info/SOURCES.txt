@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ttra/__init__.py
+src/ttra/ttra.py
+src/ttra.egg-info/PKG-INFO
+src/ttra.egg-info/SOURCES.txt
+src/ttra.egg-info/dependency_links.txt
+src/ttra.egg-info/top_level.txt
