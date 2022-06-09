@@ -1,6 +1,6 @@
 # Time-proof Time-series Reduction Algorithm
 
-## TTRA is a lightweight algorithm reducing a time-series ommiting the time.</br> It has been described in the Master's Thesis.
+## TTRA is a lightweight algorithm reducing a time-series with a time omission.</br> It has been described in the Master's Thesis.
 
 ## Example of real-time usage
 
@@ -40,4 +40,5 @@ reduced.plot()
 plt.scatter(tr.a.Index, tr.a.x, s= 150 , color='black')
 ```
 ### Output
-![image](https://user-images.githubusercontent.com/50794170/172924805-bacaeda7-a88b-4726-bce6-1cf1ab5607e1.png)
+![image](https://user-images.githubusercontent.com/50794170/172926785-2d3cf32f-cb48-4446-b521-c4a4acc9e26e.png)
+
