@@ -9,13 +9,14 @@
 ## Installation
 
 ```bash
-pip install -i https://test.pypi.org/simple/ ttra
+pip install ttra
 ```
 
 ## Usage
 
 ```python
 import pandas as pd
+import matplotlib.pyplot as plt
 from ttra import TTRA
 
 # define minimal percentage change that should be detected by TTRA
@@ -32,11 +33,12 @@ inflation = inflation.iloc[-12*25:].reset_index(drop=True) # last 25 years only 
 
 # initiate TTRA and reduce data with a given PCT_CHANGE
 tr = TTRA(inflation)
-reduced = tr.run(PCT_CHANGE).x
+reduced = tr.reduce(PCT_CHANGE)
 
 # plot data, reduced data and an assumption of the current extremum
-inflation.plot()
-reduced.plot()
+fig, ax = plt.subplots()
+inflation.plot(ax=ax)
+reduced.plot(ax=ax)
 plt.scatter(tr.a.Index, tr.a.x, s= 150 , color='black')
 ```
 ### Output

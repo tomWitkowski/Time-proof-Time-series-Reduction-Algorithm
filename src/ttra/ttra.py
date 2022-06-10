@@ -3,7 +3,18 @@ import pandas as pd
 class TTRA:
 
     """
-    Klasa służąca do wykonania algorytmu TTRA
+    Implementation of TTRA
+    ...
+
+    Attributes
+    ----------
+    data : pd.Series
+        a data which is to be reduced
+
+    Methods
+    -------
+    run(pct_change : float)
+        Conducts the reduction of data
     """
     
     def __init__(self, data: pd.Series):
@@ -12,15 +23,32 @@ class TTRA:
         self.df = pd.DataFrame({'x':self.data})
 
     def calc_change(self, xt: tuple) -> float:
+        """
+        Calculates a change between current observation and local extremum's assumption
+        """
         x_now = xt[1]
         x_a = self.a[1]
         self.change = (x_now-x_a)/x_a
         
     def check_change(self) -> bool:
+        """
+        Checks whether the calc_change results exceedes the set threshold
+        """
         return abs(self.change) >= self.min_change
 
-    def run(self, min_change: float) -> pd.DataFrame:
-
+    def reduce(self, min_change: float) -> pd.DataFrame:
+        """
+        Performs TTRA with a given threshold
+        
+        Parameters
+        ----------
+            min_change : float
+                A threshold for finding only sufficiently big movements
+        
+        Returns
+        -------
+            reduced data : pd.DataFrame
+        """
         self.min_change = min_change
         self.gather = []
         self.ad = True
